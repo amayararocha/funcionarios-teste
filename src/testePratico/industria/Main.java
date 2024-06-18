@@ -37,25 +37,28 @@ public class Main {
 		while (true) {
 
 			System.out.println(IndustriaCores.TEXT_YELLOW + IndustriaCores.ANSI_BLACK_BACKGROUND
-					          +"***************************************************** ");
+			        +          "***************************************************** ");
 			System.out.println("                                                      ");
-			System.out.println("                        PROTHERA                      ");
+			System.out.println("                        INOVATECH                     ");
 			System.out.println("                                                      ");
 			System.out.println("***************************************************** ");
 			System.out.println("                                                      ");
-			System.out.println("         1 - Cadastrar funcionário                    ");
-			System.out.println("         2 - Listar todos os funcionários             ");
-			System.out.println("         3 - Procurar funcionário por nome            ");
-			System.out.println("         4 - Deletar funcionário                      ");
-			System.out.println("         5 - Aplicar aumento de salário               ");
-			System.out.println("         6 - Listar funcionários por função           ");
-			System.out.println("         7 - Listar funcionários por ordem alfabética ");
-			System.out.println("         8 - Calcular total de salários               ");
-			System.out.println("         9 - Calcular salários em mínimos             ");
-			System.out.println("         10 - Sair                                    ");
+			System.out.println("     1 - Cadastrar funcionário                        ");
+			System.out.println("     2 - Listar todos os funcionários                 ");
+			System.out.println("     3 - Procurar funcionário por nome                ");
+			System.out.println("     4 - Deletar funcionário                          ");
+			System.out.println("     5 - Aplicar aumento de salário                   ");
+			System.out.println("     6 - Listar funcionários por função               ");
+			System.out.println("     7 - Listar funcionários por ordem alfabética     ");
+			System.out.println("     8 - Calcular total de salários                   ");
+			System.out.println("     9 - Calcular salários em mínimos                 ");
+			System.out.println("    10 - Listar aniversariantes de Outubro e Dezembro ");
+			System.out.println("    11 - Imprimir funcionário mais velho              ");
+			System.out.println("    12 - Sair                                         ");
 			System.out.println("                                                      ");
 			System.out.println("***************************************************** ");
 			System.out.println("Entre com a opção desejada:                           " + IndustriaCores.TEXT_RESET);
+
 
 			try {
 				opcao = leia.nextInt();
@@ -65,8 +68,8 @@ public class Main {
 				opcao = 0;
 			}
 
-			if (opcao == 10) {
-				System.out.println(IndustriaCores.TEXT_WHITE_BOLD + "\nProthera - Software para gestão de riscos");
+			if (opcao == 12) {
+				System.out.println(IndustriaCores.TEXT_WHITE_BOLD + "\nInovaTech - Soluções inteligentes!");
 				sobre();
 				leia.close();
 				System.exit(0);
@@ -158,6 +161,18 @@ public class Main {
 				industria.calcularSalariosMinimos();
 				keyPress();
 				break;
+
+			case 10: 
+		        // Listar aniversariantes de Outubro e Dezembro
+		        industria.listarAniversariantesOutubroDezembro();
+		        keyPress();
+		        break;
+
+		    case 11: 
+		        // Imprimir funcionário mais velho
+		        industria.imprimirFuncionarioMaisVelho();
+		        keyPress();
+		        break;
 
 			default:
 				System.out.println(IndustriaCores.TEXT_RED_BOLD + "\nOpção inválida!\n" + IndustriaCores.TEXT_RESET);

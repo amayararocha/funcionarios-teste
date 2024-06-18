@@ -15,11 +15,12 @@ public interface IndustriaRepository {
     public boolean deletar(String nome);
 
     // Métodos da Industria
-    public void aplicarAumento(BigDecimal porcentagem);
-    public void listarFuncionariosPorFuncao();
-    public void listarFuncionariosAlfabetica();
-    public BigDecimal calcularTotalSalarios();
-    public void calcularSalariosMinimos();
-    public void procurarEImprimirPorNome(String nome);
-	
+    void aplicarAumento(BigDecimal porcentagem);
+    void listarFuncionariosPorFuncao();
+    void listarFuncionariosAlfabetica();
+    BigDecimal calcularTotalSalarios();
+    void calcularSalariosMinimos();
+    void procurarEImprimirPorNome(String nome);
+    void listarAniversariantesOutubroDezembro();
+    void imprimirFuncionarioMaisVelho();
 }

@@ -3,6 +3,7 @@ package testePratico.industria.controller;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.time.LocalDate;
+import java.time.Period;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
@@ -117,6 +118,36 @@ public class IndustriaController implements IndustriaRepository {
 		}
 	}
 
+	@Override
+	public void listarAniversariantesOutubroDezembro() {
+	    funcionarios.stream()
+	        .filter(funcionario -> {
+	            int mesAniversario = funcionario.getDataNascimento().getMonthValue();
+	            return mesAniversario == 10 || mesAniversario == 12;
+	        })
+	        .forEach(funcionario -> {
+	            System.out.println("Nome: " + funcionario.getNome());
+	            System.out.println("Data de Nascimento: " + Formatadores.FORMATTER_DATA.format(funcionario.getDataNascimento()));
+	            System.out.println("-----------------------------------");
+	        });
+	}
+
+	@Override
+	public void imprimirFuncionarioMaisVelho() {
+	    Funcionario funcionarioMaisVelho = funcionarios.stream()
+	            .min(Comparator.comparing(Funcionario::getDataNascimento)) // Usar min para encontrar a data mais antiga
+	            .orElse(null);
+
+	    if (funcionarioMaisVelho != null) {
+	        System.out.println("Funcionário mais velho: ");
+	        System.out.println("Nome: " + funcionarioMaisVelho.getNome());
+	        System.out.println("Idade: " + Period.between(funcionarioMaisVelho.getDataNascimento(), LocalDate.now()).getYears());
+	        System.out.println("-----------------------------------");
+	    } else {
+	        System.out.println("Não há funcionários cadastrados.");
+	    }
+	}
+	
 	public void imprimirFuncionarios() {
 		for (Funcionario funcionario : funcionarios) {
 			System.out.println("Nome: " + funcionario.getNome());
